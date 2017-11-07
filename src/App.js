@@ -24,7 +24,29 @@ componentWillMount() {
   render() {
     return (
       <div className="App">
-     
+
+{/* <div class="dropdown Name">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> All
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="{todo}">Top 100</a></li>
+    <li><a href="#">Full List</a></li>
+    
+  </ul>
+</div> */}
+
+
+     <div class="dropdown price">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> USD
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">BTC</a></li>
+    <li><a href="#">ETH</a></li>
+    <li><a href="#">AUD</a></li>
+  </ul>
+</div>
+
+
 <table className="table table-striped">
       <thead>
         <tr>
@@ -32,14 +54,11 @@ componentWillMount() {
           <th>Price</th>    
         </tr>
       </thead>
-     
-      <tbody>
-      
-        <Projects cProjects={this.state.cryptos} />   
-       
-      </tbody>
-           
       </table>
+
+      <Projects cProjects={this.state.cryptos} /> 
+           
+      
        </div>
    );
   }

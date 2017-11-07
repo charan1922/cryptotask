@@ -15,11 +15,12 @@ if(this.props.cProjects){
 }
 
     return (
-        <div className="Projects">
-      
-          {ProjectItems}
+
+        <div  id="projects">
+        {ProjectItems}
+        </div>
+         
         
-        </div> 
    );
   }
 }
