@@ -6,10 +6,10 @@ class Projects extends Component {
 
     render() {
 
-let ProjectItem;
+let ProjectItems;
 if(this.props.cProjects){
     
-    ProjectItem = this.props.cProjects.map((Project)=>{
+    ProjectItems = this.props.cProjects.map((Project)=>{
         return <ProjectItem key={Project.id} Project={Project} />
     });
 }
@@ -17,7 +17,7 @@ if(this.props.cProjects){
     return (
         <div className="Projects">
         Table Project
-          {ProjectItem}
+          {ProjectItems}
         
         </div> 
    );

@@ -8,7 +8,7 @@ class ProjectItem extends Component {
 
     return (
         <li className="ProjectItem">
-        {this.props.Project.name}
+        {this.props.Project.id}
         </li>
 
    );

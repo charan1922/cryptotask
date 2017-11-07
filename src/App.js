@@ -12,7 +12,7 @@ constructor(props){
   }
 }
 
-componentDidMount() {
+componentWillMount() {
   axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
   .then(res => {
     const cryptos = res.data;
@@ -33,12 +33,8 @@ componentDidMount() {
         </tr>
       </thead>
       </table>
-      
-  
+            
       <Projects cProjects={this.state.cryptos} />     
-
-     
- 
 
        </div>
    );
