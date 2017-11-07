@@ -1,42 +1,47 @@
 import React, { Component } from 'react';
-//import './App.css';
+import Projects from './Components/Projects';
 import axios from 'axios';
+import './App.css';
+//import uuid from 'uuid';
 
 class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    crypto:[]
+    cryptos:[]
   }
 }
 
 componentDidMount() {
-  axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-  .then((res)=> {
-    const crypto = res.data;
-    this.setState({crypto:crypto[0]})
-    console.log(crypto)
-  } )
-
-
+  axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
+  .then(res => {
+    const cryptos = res.data;
+    console.log(cryptos);
+    this.setState({cryptos: cryptos});
+  })
 }
 
   render() {
     return (
       <div className="App">
-        <div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-</div>
+     
+<table className="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>    
+        </tr>
+      </thead>
+      </table>
+      
+  
+      <Projects cProjects={this.state.cryptos} />     
 
-<p class="bg-primary">This text is important.</p>
-  <p class="bg-success">This text indicates success.</p>
-  <p class="bg-info">This text represents some information.</p>
-  <p class="bg-warning">This text represents a warning.</p>
-  <p class="bg-danger">This text represents danger.</p>
-      </div>
-    );
+     
+ 
+
+       </div>
+   );
   }
 }
 
