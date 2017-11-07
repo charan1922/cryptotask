@@ -32,10 +32,14 @@ componentWillMount() {
           <th>Price</th>    
         </tr>
       </thead>
+     
+      <tbody>
+      
+        <Projects cProjects={this.state.cryptos} />   
+       
+      </tbody>
+           
       </table>
-            
-      <Projects cProjects={this.state.cryptos} />     
-
        </div>
    );
   }

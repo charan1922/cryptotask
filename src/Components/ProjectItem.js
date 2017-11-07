@@ -7,9 +7,13 @@ class ProjectItem extends Component {
     render() {
 
     return (
-        <li className="ProjectItem">
+
+        <tbody className="ProjectItem">
+        <tr>
         {this.props.Project.id}
-        </li>
+        </tr>
+      </tbody>
+        
 
    );
   }

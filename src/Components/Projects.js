@@ -16,7 +16,7 @@ if(this.props.cProjects){
 
     return (
         <div className="Projects">
-        Table Project
+      
           {ProjectItems}
         
         </div> 
