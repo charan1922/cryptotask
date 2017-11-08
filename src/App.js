@@ -12,13 +12,13 @@ constructor(props){
   }
 }
 
-
-//componentWillMount() { this.loadFeed.bind(this); }
-
 componentDidMount(){
   this.loadFeed();
   }
 
+  componentwillUnMount(){
+    this.loadFeed();
+    }
 
 handleINR(){
 
@@ -65,17 +65,15 @@ loadFeed(){
     return (  
       <div className="App">
 <h1> Crypto Market Open API </h1>
-
 <Price  onINR={this.handleINR.bind(this)} onETH={this.handleETH.bind(this)} onAUD={this.handleAUD.bind(this)}/>
 
-<table className="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>    
-        </tr>
-      </thead>
-      </table>
+<br/>
+      <div  id="App-container">
+       <span className="left"> Name </span>
+      
+        <span className="right" >Price </span>
+       
+         </div>
 
       <Projects cProjects={this.state.cryptos} /> 
            
