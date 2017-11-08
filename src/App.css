@@ -1,17 +1,27 @@
 .price {
   float: right;
   width:20%;
-  margin-top: 50px;
-}
-
-th{
-text-align: center;
-}
-
-.Name{
-  float: left;
+  margin-top: -20px;
 }
 
 h1 {
   text-align: center;
 }
+
+span.left{
+  font-weight: bold;
+}
+
+span.right{
+  float: right;
+  font-weight: bold;
+}
+
+div#App-container {
+  background: rgba(235, 191, 191, 0.39);
+  width: 75%;
+  margin : 0 auto 4px auto;
+  padding : 1em;
+  border: 1px solid rgba(48, 45, 45, 0.288);
+  box-shadow: 1px 1.5px  rgb(19, 5, 5);
+  }

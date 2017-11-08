@@ -1,10 +1,11 @@
 
     div#crypto-container {
         background: white;
-        width: 70%;
+        width: 75%;
         margin : 0 auto 4px auto;
         padding : 1em;
-        box-shadow: 1px 1px 1px 1px lightgray;
+        border: 1px solid rgba(48, 45, 45, 0.288);
+        box-shadow: 1px 1.5px  lightgray;
         }
         
         span.left{
