@@ -24,10 +24,10 @@ AUDprice(){
     return (
      <div  id="projects">
      <div className="dropdown price">
-     <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> USD 
+     <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {this.props.currency} 
      <span className="caret"></span></button>
      <ul className="dropdown-menu">
-     <li><a href="#" onClick={this.INRprice.bind(this) }>INR</a></li>
+     <li><a href="#" onClick={this.INRprice.bind(this) }> {this.props.currency==='INR' ? "\u2714" : ''} INR</a></li>
      <li><a href="#" onClick={this.ETHprice.bind(this) }>ETH</a></li>
      <li><a href="#" onClick={this.AUDprice.bind(this) }>AUD</a></li>
   </ul>

@@ -8,7 +8,9 @@ class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    cryptos:[],url:'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+    cryptos:[],
+    url:'https://api.coinmarketcap.com/v1/ticker/?limit=10',
+    selectedCurrency: 'USD'
   }
 }
 
@@ -22,7 +24,10 @@ componentDidMount(){
 
 handleINR(){
 
-  this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=10'});
+  this.setState({
+    url:'https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=10',
+    selectedCurrency: 'INR'
+  });
 
    setTimeout(this.loadFeed.bind(this), 500);
 
@@ -31,7 +36,10 @@ handleINR(){
 
 handleETH(){
   
-    this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=ETH&limit=10'});
+    this.setState({
+      url:'https://api.coinmarketcap.com/v1/ticker/?convert=ETH&limit=10',
+      selectedCurrency: 'ETH'
+    });
   
      setTimeout(this.loadFeed.bind(this), 500);
   
@@ -40,7 +48,10 @@ handleETH(){
 
 handleAUD(){
   
-    this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=AUD&limit=10'});
+    this.setState({
+      url:'https://api.coinmarketcap.com/v1/ticker/?convert=AUD&limit=10',
+      selectedCurrency: 'AUD'
+    });
   
      setTimeout(this.loadFeed.bind(this), 500);
   
@@ -65,7 +76,11 @@ loadFeed(){
     return (  
       <div className="App">
 <h1> Crypto Market Open API </h1>
-<Price  onINR={this.handleINR.bind(this)} onETH={this.handleETH.bind(this)} onAUD={this.handleAUD.bind(this)}/>
+<Price  
+  onINR={this.handleINR.bind(this)} 
+  onETH={this.handleETH.bind(this)} 
+  onAUD={this.handleAUD.bind(this)}
+  currency={this.state.selectedCurrency} />
 
 <br/>
       <div  id="App-container">
