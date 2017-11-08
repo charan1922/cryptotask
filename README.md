@@ -1,7 +1,7 @@
 
 
 # CryproTask
-A ReactJs web application for keeping track of Crypto Currencies Prices by using  CoinMarketCap JSON API.
+A ReactJs web application for keeping track of Crypto Currency Prices by using  CoinMarketCap JSON API.
 
 
 ## Build Setup
