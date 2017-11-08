@@ -2,50 +2,71 @@ import React, { Component } from 'react';
 import Projects from './Components/Projects';
 import axios from 'axios';
 import './App.css';
-//import uuid from 'uuid';
+import Price from './Components/Price'
 
 class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    cryptos:[]
+    cryptos:[],url:'https://api.coinmarketcap.com/v1/ticker/?limit=10'
   }
 }
 
-componentWillMount() {
-  axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=5')
+
+//componentWillMount() { this.loadFeed.bind(this); }
+
+componentDidMount(){
+  this.loadFeed();
+  }
+
+
+handleINR(){
+
+  this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=10'});
+
+   setTimeout(this.loadFeed.bind(this), 500);
+
+}
+
+
+handleETH(){
+  
+    this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=ETH&limit=10'});
+  
+     setTimeout(this.loadFeed.bind(this), 500);
+  
+  }
+
+
+handleAUD(){
+  
+    this.setState({url:'https://api.coinmarketcap.com/v1/ticker/?convert=AUD&limit=10'});
+  
+     setTimeout(this.loadFeed.bind(this), 500);
+  
+  }
+
+
+
+loadFeed(){
+  console.log('getting feed data');
+  axios.get(this.state.url)
   .then(res => {
-    const cryptos = res.data;
+    let cryptos = res.data;
     console.log(cryptos);
     this.setState({cryptos: cryptos});
   })
 }
 
+
+
+
   render() {
-    return (
+    return (  
       <div className="App">
+<h1> Crypto Market Open API </h1>
 
-{/* <div class="dropdown Name">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> All
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="{todo}">Top 100</a></li>
-    <li><a href="#">Full List</a></li>
-    
-  </ul>
-</div> */}
-
-
-     <div class="dropdown price">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> USD
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">BTC</a></li>
-    <li><a href="#">ETH</a></li>
-    <li><a href="#">AUD</a></li>
-  </ul>
-</div>
-
+<Price  onINR={this.handleINR.bind(this)} onETH={this.handleETH.bind(this)} onAUD={this.handleAUD.bind(this)}/>
 
 <table className="table table-striped">
       <thead>
